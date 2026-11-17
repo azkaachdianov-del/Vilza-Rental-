@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b2d">
+  <title>Daftar - Vilza VVIP Rental Transport</title>
+  <link rel="stylesheet" href="auth.css">
+  <script src="auth.js"></script>
+  <script>Auth.lewatiJikaMasuk();</script>
+</head>
+<body>
+  <div class="auth">
+    <aside class="auth__brand">
+      <div class="auth__logo">
+        <div class="auth__mark">V</div>
+        <div><strong>Vilza VVIP</strong><span>Rental Transport</span></div>
+      </div>
+      <div class="auth__pesan">
+        <h1>Buat akun untuk mulai mengelola armada.</h1>
+        <p>Akun baru berperan sebagai staf. Admin dapat mengubah peran menjadi akuntan atau admin bila diperlukan.</p>
+      </div>
+      <ul class="auth__fakta">
+        <li>Staf: kelola kendaraan, pelanggan, sewa, pemeliharaan</li>
+        <li>Akuntan: jurnal, buku besar, dan laporan keuangan</li>
+        <li>Admin: akses penuh</li>
+      </ul>
+    </aside>
+
+    <main class="auth__panel">
+      <div class="auth__box">
+        <h2>Daftar</h2>
+        <p class="auth__sub">Isi data berikut untuk membuat akun.</p>
+
+        <form id="signupForm" novalidate>
+          <div id="pesan" class="alert" role="alert" hidden></div>
+
+          <div class="field">
+            <label for="nama">Nama lengkap</label>
+            <input id="nama" name="nama" type="text" autocomplete="name" required>
+            <div class="field__error" id="namaErr"></div>
+          </div>
+
+          <div class="baris-2">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+              <div class="field__error" id="emailErr"></div>
+            </div>
+            <div class="field">
+              <label for="hp">No. HP <small>(opsional)</small></label>
+              <input id="hp" name="hp" type="tel" autocomplete="tel" inputmode="tel">
+              <div class="field__error" id="hpErr"></div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="sandi">Kata sandi</label>
+            <div class="sandi">
+              <input id="sandi" name="sandi" type="password" autocomplete="new-password" minlength="8" required>
+              <button type="button" class="sandi__toggle" data-target="sandi" aria-controls="sandi">Tampilkan</button>
+            </div>
+            <div class="field__hint">Minimal 8 karakter, mengandung huruf dan angka.</div>
+            <div class="field__error" id="sandiErr"></div>
+          </div>
+
+          <div class="field">
+            <label for="sandi2">Ulangi kata sandi</label>
+            <div class="sandi">
+              <input id="sandi2" name="sandi2" type="password" autocomplete="new-password" required>
+              <button type="button" class="sandi__toggle" data-target="sandi2" aria-controls="sandi2">Tampilkan</button>
+            </div>
+            <div class="field__error" id="sandi2Err"></div>
+          </div>
+
+          <button class="btn" id="kirim" type="submit">Buat akun</button>
+        </form>
+
+        <p class="auth__alih">Sudah punya akun? <a href="login.html">Masuk</a></p>
+      </div>
+    </main>
+  </div>
+  <script src="auth-page.js"></script>
+</body>
+</html>

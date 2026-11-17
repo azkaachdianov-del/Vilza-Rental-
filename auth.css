@@ -1,0 +1,149 @@
+:root {
+  --tinta: #101b2d;
+  --tinta-2: #182943;
+  --kuningan: #b08d3c;
+  --kuningan-2: #d0ad5f;
+  --latar: #f4f6f9;
+  --garis: #dfe3ea;
+  --teks: #263246;
+  --muted: #6b778c;
+  --success: #1f7a53;
+  --danger: #a93f3f;
+}
+* { box-sizing: border-box; }
+html { min-height: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+  background: var(--latar);
+  color: var(--teks);
+  line-height: 1.5;
+}
+button, input { font: inherit; }
+
+.auth {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(320px, 5fr) minmax(0, 6fr);
+}
+
+/* Panel merek di kiri */
+.auth__brand {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--tinta) 0%, var(--tinta-2) 100%);
+  color: #fff;
+  padding: 48px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.auth__brand::after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  right: -240px;
+  bottom: -240px;
+  border: 1px solid rgba(208, 173, 95, .22);
+  border-radius: 50%;
+  box-shadow: 0 0 0 60px rgba(208, 173, 95, .035), 0 0 0 120px rgba(208, 173, 95, .02);
+  pointer-events: none;
+}
+.auth__logo { display: flex; align-items: center; gap: 12px; position: relative; z-index: 1; }
+.auth__mark {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border: 1px solid rgba(208, 173, 95, .7);
+  border-radius: 12px;
+  color: var(--kuningan-2);
+  font: 700 22px Georgia, serif;
+}
+.auth__logo strong { font-size: 15px; color: var(--kuningan-2); display: block; line-height: 1.2; }
+.auth__logo span { font-size: 12px; color: #aeb8c8; }
+
+.auth__pesan { position: relative; z-index: 1; max-width: 420px; }
+.auth__pesan h1 { margin: 0 0 14px; font: 500 34px/1.2 Georgia, serif; }
+.auth__pesan p { margin: 0; color: #b8c1cf; font-size: 14px; line-height: 1.75; }
+
+.auth__fakta { position: relative; z-index: 1; margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; font-size: 13px; color: #cfd6e2; }
+.auth__fakta li { padding-left: 16px; position: relative; }
+.auth__fakta li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: var(--kuningan-2); }
+
+/* Panel formulir di kanan */
+.auth__panel { display: grid; place-items: center; padding: 40px 24px; }
+.auth__box { width: 100%; max-width: 410px; }
+.auth__box h2 { margin: 0 0 6px; font: 600 30px Georgia, serif; color: var(--tinta); }
+.auth__sub { margin: 0 0 26px; color: var(--muted); font-size: 14px; }
+
+.auth form { display: grid; gap: 16px; background: none; border: 0; padding: 0; box-shadow: none; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 13px; font-weight: 700; color: var(--tinta); }
+.field label small { font-weight: 500; color: var(--muted); }
+.field input {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid var(--garis);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--teks);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.field input:hover { border-color: #c9cfda; }
+.field input:focus { border-color: var(--kuningan); box-shadow: 0 0 0 3px rgba(176, 141, 60, .18); }
+.field input[aria-invalid="true"] { border-color: var(--danger); }
+.field__hint { font-size: 12px; color: var(--muted); }
+.field__error { font-size: 12px; color: var(--danger); min-height: 0; }
+
+.sandi { position: relative; }
+.sandi input { padding-right: 96px; }
+.sandi__toggle {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  border: 0; background: none; color: var(--kuningan);
+  font-size: 12px; font-weight: 800; padding: 7px 9px; border-radius: 6px; cursor: pointer;
+}
+.sandi__toggle:hover { background: rgba(176, 141, 60, .1); }
+.sandi__toggle:focus-visible, .btn:focus-visible, .auth a:focus-visible { outline: 3px solid rgba(176, 141, 60, .45); outline-offset: 2px; }
+
+.btn {
+  margin-top: 6px;
+  width: 100%;
+  border: 0;
+  padding: 13px 16px;
+  border-radius: 9px;
+  background: var(--tinta);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.btn:hover { background: var(--tinta-2); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .65; cursor: progress; }
+
+.alert { padding: 12px 14px; border-radius: 9px; font-size: 13px; line-height: 1.55; border: 1px solid transparent; }
+.alert[hidden] { display: none; }
+.alert--error { background: #fff1f1; border-color: #f0cccc; color: #8d3333; }
+.alert--ok { background: #eef8f2; border-color: #c6e6d4; color: #1c5f40; }
+
+.auth__alih { margin: 22px 0 0; font-size: 13px; color: var(--muted); text-align: center; }
+.auth__alih a { color: var(--kuningan); font-weight: 800; text-decoration: none; }
+.auth__alih a:hover { text-decoration: underline; }
+
+.baris-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+@media (max-width: 860px) {
+  .auth { grid-template-columns: 1fr; }
+  .auth__brand { padding: 26px 24px; gap: 18px; }
+  .auth__pesan h1 { font-size: 24px; margin-bottom: 8px; }
+  .auth__pesan p, .auth__fakta { display: none; }
+  .auth__panel { padding: 28px 18px 40px; align-items: start; }
+}
+@media (max-width: 460px) {
+  .baris-2 { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
